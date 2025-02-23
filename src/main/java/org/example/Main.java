@@ -71,7 +71,7 @@ public class Main {
                 String newp = sc.nextLine();
                 System.out.print("Yeni Parol-u Tesdiqleyin: ");
                 String conp = sc.next();
-                if (!newp.equals(p)) {
+                if (newp.equals(conp)) {
                     DBConnection.updatePassword(em,newp);
                 } else {
                     System.out.println("Duzgun Parolu Daxil Edin");
