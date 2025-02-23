@@ -69,9 +69,7 @@ public class Main {
             if (answer.equalsIgnoreCase("Beli")) {
                 System.out.print("Yeni Parol-u Daxil Edin: ");
                 String newp = sc.nextLine();
-                System.out.print("Yeni Parolu Tesdiq Edin: ");
-                String confirmp = sc.nextLine();
-                if (newp.equals(confirmp)) {
+                if (!newp.equals(p)) {
                     DBConnection.updatePassword(em,newp);
                 } else {
                     System.out.println("Duzgun Parolu Daxil Edin");
