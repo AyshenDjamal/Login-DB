@@ -92,7 +92,7 @@ public class Main {
         }else{
             System.out.println("Hele de sistemdesen");
         }
-        Menu();
+        Menu();.
     }
 
     //Hesabda Deyishiklik
