@@ -69,6 +69,8 @@ public class Main {
             if (answer.equalsIgnoreCase("Beli")) {
                 System.out.print("Yeni Parol-u Daxil Edin: ");
                 String newp = sc.nextLine();
+                System.out.print("Yeni Parol-u Tesdiqleyin: ");
+                String conp = sc.next();
                 if (!newp.equals(p)) {
                     DBConnection.updatePassword(em,newp);
                 } else {
