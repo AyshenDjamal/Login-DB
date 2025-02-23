@@ -24,7 +24,8 @@ public class Main {
             case 1: signUp(); break;
             case 2: signIn(); break;
             case 3: signOut();
-            default: manageAccount(); break;
+            case 4: manageAccount(); break;
+            default: System.out.println("Duzgun secim edin"); Menu();
         }
     }
 
@@ -92,7 +93,7 @@ public class Main {
         }else{
             System.out.println("Hele de sistemdesen");
         }
-        Menu();.
+        Menu();
     }
 
     //Hesabda Deyishiklik
