@@ -52,33 +52,42 @@ public class Main {
 
     //Log in Metodu
     public static void signIn() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("------------Sign In---------------");
-        System.out.print("Email: ");
-        String em = sc.nextLine();
-        System.out.print("Password: ");
-        String p = sc.nextLine();
+        while(true) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("------------Sign In---------------");
+            System.out.print("Email: ");
+            String em = sc.nextLine();
+            System.out.print("Password: ");
+            String p = sc.nextLine();
 
-        if (DBConnection.sign(em, p)) {
-            System.out.println("Sisteme xosh geldin!");
-        } else {
-            System.out.println("Email ve ya Parol yanlisdir!");
-            System.out.print("Eger parolu unutmusunuzsa deyishmek isterdinizmi? Beli/Xeyr \nCavab: ");
-            String answer = sc.nextLine();
+            if (DBConnection.sign(em, p)) {
+                System.out.println("Sisteme xosh geldin!");
+            } else {
+                System.out.println("Email ve ya Parol yanlisdir!");
+                System.out.print("Eger parolu unutmusunuzsa deyishmek isterdinizmi? Beli/Xeyr \nCavab: ");
+                String answer = sc.nextLine();
+                if (answer.equalsIgnoreCase("Xeyr")) continue;
 
-            if (answer.equalsIgnoreCase("Beli")) {
-                System.out.print("Yeni Parol-u Daxil Edin: ");
-                String newp = sc.nextLine();
-                System.out.print("Yeni Parol-u Tesdiqleyin: ");
-                String conp = sc.next();
-                if (newp.equals(conp)) {
-                    DBConnection.updatePassword(em,newp);
-                } else {
-                    System.out.println("Duzgun Parolu Daxil Edin");
+
+                if (answer.equalsIgnoreCase("Beli")) {
+                    while (true) {
+                        System.out.print("Yeni Parol-u Daxil Edin: ");
+                        String newp = sc.nextLine();
+                        System.out.print("Yeni Parol-u Tesdiqleyin: ");
+                        String conp = sc.next();
+                        sc.nextLine();
+                        if (newp.equals(conp)) {
+                            DBConnection.updatePassword(em, newp);
+                            break;
+                        } else {
+                            System.out.println("----------------------------");
+                            System.out.println("Duzgun Parolu Daxil Edin!\n");
+                        }
+                    }
                 }
             }
+            Menu();
         }
-        Menu();
     }
 
     //Exit ucun

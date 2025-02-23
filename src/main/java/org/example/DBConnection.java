@@ -150,7 +150,7 @@ public class DBConnection {
                 int rowCount = pstmt.executeUpdate();
 
                 if (rowCount > 0) {
-                    System.out.println("Password Ugurla Deyishdirildi!");
+                    System.out.println("\nPassword Ugurla Deyishdirildi!");
                 } else {
                     System.out.println("Password Duzgun Secilmedi");
                 }
